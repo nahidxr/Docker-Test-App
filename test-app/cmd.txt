@@ -1,0 +1,9 @@
+docker compose build --no-cache app
+docker-compose exec app composer update
+docker-compose exec app php artisan key:generate
+ docker-compose exec app php artisan config:cache
+
+docker-compose up db 
+docker-compose up -d db 
+
+ docker-compose exec app php artisan migrate 
